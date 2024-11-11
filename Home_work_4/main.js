@@ -71,4 +71,88 @@ getArray(['test', 4, 12, 'tesdfdf', 14, true, 1242, 'master', false]);
 
 //- створити функцію яка приймає масив об'єктів з наступними полями id, name, age та виводить їх в документ.
 // Для кожного об'єкту окремий блок.
+let products = [
+    {
+        id: 1,
+        title: 'milk',
+        age: 20
+    },
+    {
+        id: 2,
+        title: 'meat',
+        age: 22
+    },
+    {
+        id: 3,
+        title: 'banana',
+        age: 45
+    },
+    {
+        id: 4,
+        title: 'water',
+        age: 78
+    },
+];
 
+function getProducts(arrayProducts){
+    for (const arrayProduct of arrayProducts) {
+        document.write(`
+            <div>
+                <h2>${arrayProduct.id} -  ${arrayProduct.title}</h2>
+                <p>Product age - ${arrayProduct.age}</p>
+            </div>
+        `);
+    }
+}
+getProducts(products);
+
+// - створити функцію яка повертає найменьше число з масиву
+// function getMinNumber(arrayNumber){
+//     return Math.min(...arrayNumber);
+// }
+function getMinNumber(arrayNumber){
+    let min = arrayNumber[0];
+    for (let i = 1; i < arrayNumber.length; i++) {
+        if (arrayNumber[i] < min) {
+            min = arrayNumber[i];
+        }
+    }
+    return min;
+}
+console.log(getMinNumber([5, 2, 9, 1, -3, 10]));
+
+// - створити функцію sum(arr) яка приймає масив чисел, сумує значення елементів масиву та повертає його.
+// Приклад sum([1,2,10]) //->13
+function sum(arr){
+    let sumArr = 0;
+    for (const arrElement of arr) {
+        sumArr += arrElement;
+    }
+    return sumArr;
+}
+console.log(sum([1,2,10]));
+
+// - створити функцію swap(arr,index1,index2). Функція міняє місцями значення у відповідних індексах
+// Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]
+function swap(arr, index1, index2){
+    let temp = arr[index1];
+    arr[index1] = arr[index2];
+    arr[index2] = temp;
+
+    return arr;
+}
+console.log(swap([11,22,33,44],0,1));
+
+// - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
+// Приклад exchange(10000,[{currency:'USD',value:25},{currency:'EUR',value:42}],'USD') // => 400
+function exchange(sumUAH, currencyValues, exchangeCurrency){
+    let changeCurrency;
+    for (const itemValues of currencyValues) {
+        if (itemValues.currency === exchangeCurrency){
+            changeCurrency = itemValues;
+        }
+    }
+    return sumUAH / changeCurrency.value;
+}
+
+console.log(exchange(10000,[{currency:'USD',value:25},{currency:'EUR',value:42}],'USD'));
