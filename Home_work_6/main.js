@@ -37,17 +37,24 @@ function stringToarray(strNew){
 console.log(stringToarray(strNew));
 
 //- є масив чисел [10,8,-7,55,987,-1011,0,1050,0] . за допомоги map  перетворити всі об'єкти в масиві на стрінгові.
-
-
+let arrMap = [10,8,-7,55,987,-1011,0,1050,0];
+let arrMapString = arrMap.map(arrMapMew=>{
+    return arrMapMew + '';
+})
+console.log(arrMapString);
 //- створити функцію sortNums(array,direction), яка приймає масив чисел, та сортує його від більшого до меншого,
 // або навпаки в залежності від значення аргументу direction.
-let nums = [11,21,3];
+let nums = [11, 21, 3];
 function sortNums(array, direction){
-
+    if (direction === 'ascending'){
+       return array.sort((a, b)=> a - b);
+    }
+    if (direction === 'descending'){
+       return array.sort((a, b)=> b - a);
+    }
 }
-console.log(sortNums(nums,'ascending')) // [3,11,21]
-sortNums(nums,'descending') // [21,11,3]
-
+console.log(sortNums(nums,'ascending')); // [3,11,21]
+console.log(sortNums(nums,'descending')); // [21,11,3]
 
 //- є масив
 let coursesAndDurationArray = [
@@ -75,3 +82,16 @@ let mapArray = coursesAndDurationArray.map(function (value, index){
     }
 })
 console.log(mapArray);
+
+// не знаю чи це окремо потрібно фільтрувати чи все до одночасно
+let coursesAndDurationArrayNew = coursesAndDurationArray
+    .sort((monthDuration1, monthDuration2) => monthDuration2.monthDuration - monthDuration1.monthDuration)
+    .filter((value) => value.monthDuration > 5)
+    .map(function (value, index){
+        return {
+            id: index + 1,
+            title: value.title,
+            monthDuration: value.monthDuration
+        }
+    })
+console.log(coursesAndDurationArrayNew)
