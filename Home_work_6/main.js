@@ -1,29 +1,40 @@
 //- Знайти та вивести довжину наступних стрінгових значень
 //  'hello world', 'lorem ipsum', 'javascript is cool'
-let helloW = 'hello world';
-console.log(helloW.length);
-let loremI = 'lorem ipsum';
-console.log(loremI.length);
-let jsIsCool = 'javascript is cool';
-console.log(jsIsCool.length);
+let strFixed = ['hello world', 'lorem ipsum', 'javascript is cool'];
+for (let string of strFixed) {
+    console.log(string.length);
+}
+// let helloW = 'hello world';
+// console.log(helloW.length);
+// let loremI = 'lorem ipsum';
+// console.log(loremI.length);
+// let jsIsCool = 'javascript is cool';
+// console.log(jsIsCool.length);
 
 //- Перевести до великого регістру наступні стрінгові значення
 //  'hello world', 'lorem ipsum', 'javascript is cool'
-let helloWorld = 'hello world';
-console.log(helloWorld.toUpperCase());
-let loremIpsum = 'lorem ipsum';
-console.log(loremIpsum.toUpperCase());
-let javasIsCool = 'javascript is cool';
-console.log(javasIsCool.toUpperCase());
+for (let string of strFixed) {
+    console.log(string.toUpperCase());
+}
+// let helloWorld = 'hello world';
+// console.log(helloWorld.toUpperCase());
+// let loremIpsum = 'lorem ipsum';
+// console.log(loremIpsum.toUpperCase());
+// let javasIsCool = 'javascript is cool';
+// console.log(javasIsCool.toUpperCase());
 
 //- Перевести до нижнього регістру настипні стрінгові значення
 // 'HELLO WORLD', 'LOREM IPSUM', 'JAVASCRIPT IS COOL'
-let hWorld = 'HELLO WORLD';
-console.log(hWorld.toLowerCase());
-let lIpsum = 'LOREM IPSUM';
-console.log(lIpsum.toLowerCase());
-let jIsCool = 'JAVASCRIPT IS COOL';
-console.log(jIsCool.toLowerCase());
+let strFixedUpper = ['HELLO WORLD', 'LOREM IPSUM', 'JAVASCRIPT IS COOL'];
+for (let string of strFixedUpper) {
+    console.log(string.toLowerCase());
+}
+// let hWorld = 'HELLO WORLD';
+// console.log(hWorld.toLowerCase());
+// let lIpsum = 'LOREM IPSUM';
+// console.log(lIpsum.toLowerCase());
+// let jIsCool = 'JAVASCRIPT IS COOL';
+// console.log(jIsCool.toLowerCase());
 
 //- Є "брудна" стрінга let str = ' dirty string   ' . Почистити її від зайвих пробілів.
 let str = ' dirty string   '
