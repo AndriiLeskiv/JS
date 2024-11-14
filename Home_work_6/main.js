@@ -100,11 +100,6 @@ let coursesAndDurationArrayNew = coursesAndDurationArray
 console.log(coursesAndDurationArrayNew);
 
 // описати колоду карт (від 6 до туза без джокерів)
-// {
-//     cardSuit: '', // 'spade', 'diamond','heart', 'clubs'
-//     value: '', // '6'-'10', 'ace','jack','queen','king'
-//     color:'', // 'red','black'
-// }
 let cardSuits = ['spade', 'diamond', 'heart', 'clubs'];
 let values = ['6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace'];
 
