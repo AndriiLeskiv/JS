@@ -144,3 +144,95 @@ cars.increaseMaxSpeed(50);
 cars.changeYear(2024);
 cars.addDriver({name: 'Andrii', age: 26, experience: 8});
 console.log(cars);
+
+//#5kla3yMpgp
+// - (Те саме, тільки через клас)
+// Створити клас який дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску, максимальна
+// швидкість, об'єм двигуна. додати в об'єкт функції:
+//     -- drive () - яка виводить в консоль `їдемо зі швидкістю ${максимальна швидкість} на годину`
+//     -- info () - яка виводить всю інформацію про автомобіль в форматі `назва поля - значення поля`
+//     -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
+//     -- changeYear (newValue) - змінює рік випуску на значення newValue
+//     -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і додає його в поточний об'єкт car
+class CarUser{
+    constructor(model, manufacturer, yearOfManufacture, maxSpeed, engineCapacity) {
+        this.model = model;
+        this.manufacturer = manufacturer;
+        this.yearOfManufacture = yearOfManufacture;
+        this.maxSpeed = maxSpeed;
+        this.engineCapacity = engineCapacity;
+    }
+    drive(){
+        console.log(`їдемо зі швидкістю ${this.maxSpeed} на годину`);
+    }
+    info(){
+        for (const carInfo in this) {
+            console.log(`${carInfo} -  ${this[carInfo]}`);
+        }
+    }
+    increaseMaxSpeed(newSpeed){
+        this.maxSpeed += newSpeed;
+    }
+    changeYear(newValue){
+        this.yearOfManufacture = newValue;
+    }
+    addDriver(driver){
+        this.addDriver = driver;
+    }
+}
+
+let carsNew = new CarUser('Model M', 'Tesla', 2012, 290, 6);
+
+console.log(carsNew);
+carsNew.drive();
+carsNew.info();
+carsNew.increaseMaxSpeed(60);
+carsNew.changeYear(2023);
+carsNew.addDriver({name: 'Vasyl', age: 47, experience: 29});
+console.log(carsNew);
+
+//-створити класс/функцію конструктор попелюшка з полями ім'я, вік, розмір ноги. Створити масив з 10 попелюшок.
+// Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
+// За допомоги циклу знайти яка попелюшка повинна бути з принцом.
+// Додатково, знайти необхідну попелюшку за допомоги функції масиву find та відповідного колбеку
+
+class Cinderella{
+    constructor(name, age, footSize) {
+        this.name = name;
+        this.age = age;
+        this.footSize = footSize;
+    }
+}
+
+class Prince{
+    constructor(name, age, shoeCinderella) {
+        this.name = name;
+        this.age = age;
+        this.shoeCinderella = shoeCinderella;
+    }
+}
+
+let cinderellaArray = [
+    new Cinderella('Cindy', 22, 36),
+    new Cinderella('Ella', 25, 35),
+    new Cinderella('Anna', 20, 37),
+    new Cinderella('Lily', 24, 39),
+    new Cinderella('Sophia', 23, 40),
+    new Cinderella('Maria', 21, 42),
+    new Cinderella('Chloe', 26, 34),
+    new Cinderella('Olivia', 22, 43),
+    new Cinderella('Isla', 24, 41),
+    new Cinderella('Amelia', 23, 33)
+]
+
+let prince = new Prince('Antonio', 28, 36);
+
+for (const cinderella of cinderellaArray) {
+    if (cinderella.footSize === prince.shoeCinderella){
+        prince.love = cinderella.name;
+    }
+}
+console.log(prince);
+let princeLove = cinderellaArray.find(cinderellaArray => cinderellaArray.footSize === prince.shoeCinderella);
+prince.love = princeLove.name;
+console.log(prince);
