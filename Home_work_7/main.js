@@ -145,7 +145,6 @@ cars.changeYear(2024);
 cars.addDriver({name: 'Andrii', age: 26, experience: 8});
 console.log(cars);
 
-//#5kla3yMpgp
 // - (Те саме, тільки через клас)
 // Створити клас який дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску, максимальна
 // швидкість, об'єм двигуна. додати в об'єкт функції:
@@ -195,7 +194,6 @@ console.log(carsNew);
 // Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
 // За допомоги циклу знайти яка попелюшка повинна бути з принцом.
 // Додатково, знайти необхідну попелюшку за допомоги функції масиву find та відповідного колбеку
-
 class Cinderella{
     constructor(name, age, footSize) {
         this.name = name;
@@ -236,3 +234,23 @@ console.log(prince);
 let princeLove = cinderellaArray.find(cinderellaArray => cinderellaArray.footSize === prince.shoeCinderella);
 prince.love = princeLove.name;
 console.log(prince);
+
+//*Через Array.prototype. створити власний foreach, filter
+Array.prototype.newForeach = function (callback) {
+    for (const myArrayElement of this) {
+        callback(myArrayElement);
+    }
+};
+
+[11, 77, 44, 788, 'test', 'named', 78].newForeach((x) => console.log(x));
+
+Array.prototype.newFilter = function (arguments) {
+    let newArr = [];
+    for (let argument of this) {
+        if(arguments(argument)){
+            newArr.push(argument);
+        }
+    }
+    return newArr;
+}
+console.log(cinderellaArray.newFilter((value => value.age >= 24)));
