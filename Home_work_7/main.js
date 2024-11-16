@@ -31,7 +31,7 @@ console.log(sortArray);
 
 //- створити класс для об'єктів Client з полями id, name, surname , email, phone, order (поле є масивом зі списком товарів)
 // створити пустий масив, наповнити його 10 об'єктами Client
-class Order {
+class Order{
     constructor(name, price) {
         this.name = name;
         this.price = price;
@@ -102,3 +102,45 @@ console.log(sortClientsArray);
 //     -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
 //     -- changeYear (newValue) - змінює рік випуску на значення newValue
 //     -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і додає його в поточний об'єкт car
+function Car(model, manufacturer, yearOfManufacture, maxSpeed, engineCapacity){
+    this.model = model;
+    this.manufacturer = manufacturer;
+    this.yearOfManufacture = yearOfManufacture;
+    this.maxSpeed = maxSpeed;
+    this.engineCapacity = engineCapacity;
+
+    this.drive = function (){
+        console.log(`їдемо зі швидкістю ${this.maxSpeed} на годину`);
+    }
+    this.info = function (){
+        // console.log(`Model - ${this.model}`);
+        // console.log(`Manufacturer - ${this.manufacturer}`);
+        // console.log(`Year of Manufacture - ${this.yearOfManufacture}`);
+        // console.log(`Max Speed - ${this.maxSpeed}`);
+        // console.log(`Engine Capacity - ${this.engineCapacity}`);
+
+        // чомусь в мене тут виводить усі властивості
+        for (const carInfo in this) {
+            console.log(`${carInfo} -  ${this[carInfo]}`);
+        }
+    }
+    this.increaseMaxSpeed = function(newSpeed){
+        this.maxSpeed += newSpeed;
+    }
+    this.changeYear = function(newValue){
+        this.yearOfManufacture = newValue;
+    }
+    this.addDriver = function(driver){
+        this.addDriver = driver;
+    }
+}
+
+let cars = new Car('Model S', 'Tesla', 2022, 280, 5);
+
+console.log(cars);
+cars.drive();
+cars.info();
+cars.increaseMaxSpeed(50);
+cars.changeYear(2024);
+cars.addDriver({name: 'Andrii', age: 26, experience: 8});
+console.log(cars);
