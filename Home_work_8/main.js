@@ -1,7 +1,51 @@
 //Створити функцію, яка робить глибоку копію об'єкту.
 // Додати перевірки на undefined, null, NaN.
 // Подумати і реалізувати логіку, в якій кінцевий об'єкт буде мати функції,які в нього були до цього моменту.
+function deepClone(obj) {
+    if (obj === null || obj === undefined) {
+        return obj;
+    }
+    if (typeof obj === 'number' && isNaN(obj)) {
+        return NaN;
+    }
+    if (typeof obj !== 'object') {
+        return obj;
+    }
+    if (typeof obj === 'function') {
+        return obj.bind(null);
+    }
+    if (Array.isArray(obj)) {
+        return obj.map(item => deepClone(item));
+    }
 
+    const clonedObj = {};
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            clonedObj[key] = deepClone(obj[key]);
+        }
+    }
+
+    Object.setPrototypeOf(clonedObj, Object.getPrototypeOf(obj));
+
+    return clonedObj;
+}
+
+const obj = {
+    name: "Test",
+    value: NaN,
+    method: function () { return "Hello"; },
+    nested: {
+        key: "value",
+        func: () => "Nested function",
+    },
+    array: [1, 2, 3, { a: 1 }],
+};
+
+const clonedObj = deepClone(obj);
+
+console.log(clonedObj);
+console.log(clonedObj.method());
+console.log(clonedObj.nested.func());
 
 //- є масив
 let coursesAndDurationArray = [
