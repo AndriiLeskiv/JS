@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<!--Стоврити форму з трьома полями для name,sruname,age та кнопкою. При натисканні на кнопку зчитати данні з полів, та
+ вивести об'єкт в документ. Іншими словами : заповниои форму, натиснули кнопку, під формою з'явився блок з вашим об'єктом-->
+<form id="userInfo">
+  <input type="text" name="name" id="name" placeholder="Please enter your name">
+  <input type="text" name="surname" id="surname" placeholder="Please enter your surname">
+  <input type="number" name="age" id="age" placeholder="Please enter your age">
+  <button id="checkAge">Submit</button>
+</form>
+<div id="result"></div>
+
+<script>
+  let checkAge = document.forms.userInfo;
+  checkAge.onsubmit = function (event){
+    event.preventDefault();
+
+    let userInfo = {
+      name: this.name.value,
+      surname: this.surname.value,
+      age: this.age.value,
+    }
+
+    let result = document.getElementById('result');
+    if (userInfo.name){
+      result.innerText = `Мене звати - ${userInfo.name} ${userInfo.surname}. Мені ${userInfo.age} років!`;
+    }else{
+      result.innerText = 'Будь ласка введіть свої дані!!!';
+    }
+  }
+</script>
+</body>
+</html>

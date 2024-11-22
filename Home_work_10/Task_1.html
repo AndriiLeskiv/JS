@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!--Створити довільний елемент з id = text та створити кнопку.Використовуючи JavaScript, зробіть так, щоб при натисканн
+на кнопку зникав елемент з id="text".-->
+<h2 id="text">Test 1</h2>
+<button id="btnHide">Delete text</button>
+
+<script>
+    let btnHide = document.getElementById('btnHide');
+    btnHide.onclick = function (){
+        document.getElementById('text').style.display = "none";
+    }
+</script>
+</body>
+</html>
