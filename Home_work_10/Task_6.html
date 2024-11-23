@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<!--створити конвертор ваги з кг в фунти. данні заповнюються через інпут. При введенні даних обрахунок стається миттєво,
+ без натискань додаткових кнопок-->
+<input type="number" id="convertor" placeholder="Please enter data in kg">
+<p id="resultConvert"></p>
+
+<script>
+let getKg = document.getElementById('convertor');
+let resultConvert = document.getElementById('resultConvert');
+getKg.oninput = function (){
+  resultConvert.innerText = (parseInt(this.value) * 2.2).toFixed(2);
+}
+</script>
+</body>
+</html>
