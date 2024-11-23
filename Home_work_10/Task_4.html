@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!--є сторінка, на якій є блок, я кому знаходиьтся цифра. написати код, який при кожному перезавантажені сторінки
+буде додавати до неї +1-->
+<div id="numberBlock">0</div>
+
+<script>
+    window.onload = function(){
+        let number = document.getElementById('numberBlock');
+        let currentNumber = localStorage.getItem('number') || 0;
+        currentNumber = parseInt(currentNumber) + 1;
+        localStorage.setItem('number', currentNumber);
+        number.innerText = currentNumber;
+    }
+</script>
+</body>
+</html>
