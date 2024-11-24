@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<!--*** (подібне було вище, але...будьте уважні в другій частині) створити сторінку з довільним блоком, в середині якого є значення "100грн"-->
+<!--при перезавантаженні сторінки до значення додається по 10грн, але !!!-->
+<!--зміна ціни відбувається тільки на перезавантаження, які відбулись пізніше ніж 10 секунд після попереднього.-->
+<!--При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд - нічого не відбувається-->
+<div id="numberBlock">100</div>
+
+<script>
+  window.onload = function(){
+    let numberBlock  = document.getElementById('numberBlock');
+    let datePage = Date.now();
+
+    let currentNumber = parseInt(localStorage.getItem('reloadPage')) || 100;
+    let currentDate =  parseInt(localStorage.getItem('currentDate')) || 0;
+
+    if(datePage - currentDate >= 10000){
+      currentNumber += 10;
+      localStorage.setItem('reloadPage', currentNumber);
+      localStorage.setItem('currentDate', datePage);
+    }
+    numberBlock.textContent = currentNumber;
+  }
+</script>
+</body>
+</html>

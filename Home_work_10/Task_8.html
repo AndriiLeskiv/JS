@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!--Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.-->
+<!--При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.-->
+<input type="number" id="rows">
+<input type="number" id="columns">
+<input type="text" id="columns_content">
+<button id="showInfo">Show Information</button>
+
+<div id="tableContainer"></div>
+<script>
+    let showInfo = document.getElementById('showInfo');
+    showInfo.onclick = function (){
+        let rows = +document.getElementById('rows').value;
+        let columns = +document.getElementById('columns').value;
+        let columns_content = document.getElementById('columns_content').value;
+        let tableContainer = document.getElementById('tableContainer');
+        let table = document.createElement('table');
+
+        for (let i=0; i < rows; i++){
+            let tr = document.createElement('tr');
+            for (let j=0; j < columns; j++){
+                let td = document.createElement('td');
+                td.innerText = columns_content;
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+        tableContainer.appendChild(table);
+    }
+</script>
+</body>
+</html>

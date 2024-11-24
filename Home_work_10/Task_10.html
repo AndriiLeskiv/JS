@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<!--***PAGINATION-->
+<!--зробити масив на 100 об'єктів та дві кнопки prev next-->
+<!--при завантажені сторінки з'являються перші 10 об'єктів.-->
+<!--При натисканні next виводяться наступні 10 об'єктів-->
+<!--При натисканні prev виводяться попередні 10 об'єктів-->
+<div id="objectContainer"></div>
+<div>
+  <button id="prevButton" disabled>Prev</button>
+  <button id="nextButton">Next</button>
+</div>
+
+<script>
+  //ось це я зробив за допомогою chatgpt, тепер розумію що тут нічого складного не було
+  let totalObjects = 100;
+  let itemsPerPage = 10;
+  let currentPage = 1;
+
+  let objRandom = Array.from({ length: totalObjects }, (_, i) => ({ id: i + 1, name: `Object Test ${i + 1}` }));
+
+  function renderObjects() {
+    let container = document.getElementById('objectContainer');
+    container.innerHTML = '';
+
+    let startIndex = (currentPage - 1) * itemsPerPage;
+    let endIndex = startIndex + itemsPerPage;
+    let pageObjects = objRandom.slice(startIndex, endIndex);
+
+    let fragment = document.createDocumentFragment();
+    pageObjects.forEach(obj => {
+      let div = document.createElement('div');
+      div.textContent = `ID: ${obj.id}, Name: ${obj.name}`;
+      fragment.appendChild(div);
+    });
+
+    container.appendChild(fragment);
+
+    document.getElementById('prevButton').disabled = currentPage === 1;
+    document.getElementById('nextButton').disabled = currentPage === Math.ceil(totalObjects / itemsPerPage);
+  }
+
+  document.getElementById('prevButton').addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderObjects();
+    }
+  });
+
+  document.getElementById('nextButton').addEventListener('click', () => {
+    if (currentPage < Math.ceil(totalObjects / itemsPerPage)) {
+      currentPage++;
+      renderObjects();
+    }
+  });
+
+  renderObjects();
+</script>
+</body>
+</html>
