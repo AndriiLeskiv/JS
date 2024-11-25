@@ -3,7 +3,6 @@ fetch('https://dummyjson.com/carts')
     .then(value => value.json())
     .then(res => {
         let {carts} = res;
-
         let cartsBox = document.createElement('div');
         cartsBox.classList.add('carts');
 

@@ -4,7 +4,6 @@ fetch('https://dummyjson.com/recipes')
     .then(value => value.json())
     .then(res => {
         let {recipes} = res;
-
         let recipesBox = document.createElement('div');
         recipesBox.classList.add('recipes');
 
