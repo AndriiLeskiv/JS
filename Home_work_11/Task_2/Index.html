@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .recipes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .recipe-item {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: calc(33% - 42px);
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+    }
+    .recipe-item h2 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .recipe-item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .ingredients-list,
+    .instructions-list,
+    .recipe-tags,
+    .meal-type {
+      margin: 15px 0;
+      padding-left: 15px;
+    }
+    .ingredients-list h3,
+    .instructions-list h3,
+    .recipe-tags h3,
+    .meal-type h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #007BFF;
+    }
+    .ingredients-list li,
+    .instructions-list li,
+    .recipe-tags li,
+    .meal-type li {
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: #555;
+    }
+    .other-info {
+      background: #f3f3f3;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #333;
+    }
+    .other-info p {
+      margin: 5px 0;
+    }
+    @media (max-width: 768px) {
+      .recipe-item {
+        width: calc(50% - 40px);
+      }
+    }
+    @media (max-width: 480px) {
+      .recipe-item {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+<script src="main.js"></script>
+</body>
+</html>
