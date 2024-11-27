@@ -74,4 +74,3 @@ fetch('https://dummyjson.com/recipes')
         }
         document.body.appendChild(recipesBox);
     });
-
